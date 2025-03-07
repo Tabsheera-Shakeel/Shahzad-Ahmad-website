@@ -13,8 +13,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-900 to-black overflow-hidden shadow-lg z-50">
       <nav className="container mx-auto flex justify-between items-center py-4 px-6">
-        
-     
+        {/* Logo */}
         <Link href="/">
           <Image
             src="/logo.png"
@@ -25,7 +24,7 @@ const Navbar = () => {
           />
         </Link>
 
-      
+        {/* Desktop Navigation Links */}
         <ul className="hidden md:flex space-x-8 text-white text-lg font-medium">
           <li>
             <Link href="/" className="hover:text-orange-400 transition-all duration-300">
@@ -49,14 +48,38 @@ const Navbar = () => {
           </li>
         </ul>
 
-       
-        <Link href="/contact">
-  <button className="hidden md:block bg-orange-400 text-black px-6 py-2 rounded-lg font-bold hover:bg-orange-300 transition-all duration-300 shadow-md">
-    Get Started
-  </button>
-</Link>
+        {/* My Blogs Button (Visible only on larger screens) */}
+        <div className="hidden md:flex items-center space-x-4">
+          <Link
+            href="https://shahzadmirza.com/blog/"
+            className="text-white font-medium text-lg flex items-center gap-2 hover:text-orange-400 transition-all duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>My Blogs</span>
+          </Link>
 
+          {/* Get Started Button */}
+          <Link href="/contact">
+            <button className="bg-orange-400 text-black px-6 py-2 rounded-lg font-bold hover:bg-orange-300 transition-all duration-300 shadow-md">
+              Get Started
+            </button>
+          </Link>
+        </div>
 
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-white text-2xl focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -65,14 +88,15 @@ const Navbar = () => {
         </button>
       </nav>
 
+      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={closeMenu} 
+          onClick={closeMenu}
         ></div>
       )}
 
-      
+      {/* Mobile Menu */}
       <div
         className={`fixed right-0 top-0 w-64 h-full bg-[#081830] text-white py-4 px-6 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -83,7 +107,7 @@ const Navbar = () => {
             <Link
               href="/"
               className="block hover:text-yellow-400 transition-all duration-300"
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               Home
             </Link>
@@ -92,7 +116,7 @@ const Navbar = () => {
             <Link
               href="/about"
               className="block hover:text-yellow-400 transition-all duration-300"
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               About
             </Link>
@@ -101,7 +125,7 @@ const Navbar = () => {
             <Link
               href="/services"
               className="block hover:text-yellow-400 transition-all duration-300"
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               Expertise
             </Link>
@@ -110,7 +134,7 @@ const Navbar = () => {
             <Link
               href="/contact"
               className="block hover:text-yellow-400 transition-all duration-300"
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               Contact
             </Link>
